@@ -1,3 +1,5 @@
+
+
 // "use client";
 // import { useState } from "react";
 
@@ -44,7 +46,7 @@
 //   return (
 //     <section id="projects" className="px-10 py-20 border-t border-gray-800">
 
-//       <h2 className="text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+//       <h2 className="text-4xl font-extrabold text-gray-200">
 //         Projects
 //       </h2>
 
@@ -55,22 +57,22 @@
 //             key={i}
 //             onMouseEnter={() => setActiveIndex(i)}
 //             onMouseLeave={() => setActiveIndex(null)}
-//             className="
-//               rounded-xl p-6
-//               bg-white/5 backdrop-blur-lg
-//               border border-blue-900/40
-//               hover:border-blue-500/60
-//               hover:shadow-[0_0_20px_rgba(30,64,175,0.4)]
-//               transition duration-300
-//             "
+//             className={`
+//               rounded-xl p-6 backdrop-blur-lg transition duration-300
+//               ${
+//                 activeIndex === i
+//                   ? "bg-gray-900 border border-gray-500 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+//                   : "bg-white/5 border border-gray-700/50"
+//               }
+//             `}
 //           >
 
 //             {/* Title */}
-//             <h3 className="text-xl font-semibold text-white">
+//             <h3 className="text-xl font-semibold text-gray-100">
 //               {project.title}
 //             </h3>
 
-//             {/* FIXED HOVER CONTENT */}
+//             {/* Content */}
 //             <div
 //               className={`
 //                 mt-4 overflow-hidden transition-all duration-500
@@ -78,7 +80,7 @@
 //               `}
 //             >
 
-//               <ul className="text-gray-300 list-disc pl-5 space-y-2 mt-3">
+//               <ul className="text-gray-400 list-disc pl-5 space-y-2 mt-3">
 //                 {project.desc.map((point, idx) => (
 //                   <li key={idx}>{point}</li>
 //                 ))}
@@ -90,10 +92,8 @@
 //                     key={idx}
 //                     className="
 //                       px-3 py-1 text-sm rounded-full 
-//                       bg-blue-900/40 text-blue-300 
-//                       border border-blue-700/40
-//                       hover:bg-blue-600 hover:text-white
-//                       transition
+//                       bg-gray-800 text-gray-300 
+//                       border border-gray-600
 //                     "
 //                   >
 //                     {t}
@@ -111,7 +111,6 @@
 //     </section>
 //   );
 // }
-
 
 "use client";
 import { useState } from "react";
@@ -168,10 +167,14 @@ export default function Projects() {
         {projects.map((project, i) => (
           <div
             key={i}
+
+            // 🔥 FIX: support both hover + click
             onMouseEnter={() => setActiveIndex(i)}
             onMouseLeave={() => setActiveIndex(null)}
+            onClick={() => setActiveIndex(activeIndex === i ? null : i)}
+
             className={`
-              rounded-xl p-6 backdrop-blur-lg transition duration-300
+              rounded-xl p-6 backdrop-blur-lg transition duration-300 cursor-pointer
               ${
                 activeIndex === i
                   ? "bg-gray-900 border border-gray-500 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
@@ -187,18 +190,25 @@ export default function Projects() {
 
             {/* Content */}
             <div
+              style={{ WebkitOverflowScrolling: "touch" }}
               className={`
-                mt-4 overflow-hidden transition-all duration-500
-                ${activeIndex === i ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
+                mt-4 transition-all duration-500
+                ${
+                  activeIndex === i
+                    ? "max-h-[400px] md:max-h-[500px] overflow-y-auto opacity-100 pr-2"
+                    : "max-h-0 overflow-hidden opacity-0"
+                }
               `}
             >
 
+              {/* Description */}
               <ul className="text-gray-400 list-disc pl-5 space-y-2 mt-3">
                 {project.desc.map((point, idx) => (
                   <li key={idx}>{point}</li>
                 ))}
               </ul>
 
+              {/* Tech Stack */}
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.tech.map((t, idx) => (
                   <span
