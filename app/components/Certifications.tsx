@@ -156,7 +156,7 @@ export default function Certifications() {
 
               {/* Top row */}
               <div className="flex items-start justify-between mb-4">
-                <div className="text-4xl">{cert.icon}</div>
+<div className="text-4xl">📜</div>
                 <span className={`text-xs font-semibold px-3 py-1 rounded-full ${cert.badge} whitespace-nowrap`}>
                   {cert.credential}
                 </span>
