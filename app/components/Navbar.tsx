@@ -10,92 +10,51 @@ export default function Navbar() {
         px-6 md:px-10 py-4
       "
     >
-
       <div className="max-w-7xl mx-auto flex justify-between items-center">
 
         {/* LOGO */}
         <h1
           className="
             text-2xl font-bold
-            bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400
+            bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400
             bg-clip-text text-transparent
             tracking-wide
             cursor-pointer
           "
         >
-          Priyanka
+          {/* Priyanka */}
         </h1>
 
         {/* MENU */}
-        <div
-          className="
-            flex items-center
-            gap-4 md:gap-8
-            text-sm md:text-base
-            text-gray-300
-          "
-        >
+        <div className="flex items-center gap-6 text-gray-300">
 
-          <a
-            href="#about"
-            className="
-              relative hover:text-white transition duration-300
-              after:absolute after:left-0 after:-bottom-1
-              after:w-0 after:h-[2px]
-              after:bg-blue-400
-              after:transition-all after:duration-300
-              hover:after:w-full
-            "
-          >
+          <a href="#about" className="hover:text-cyan-300 transition">
             About
           </a>
 
-          <a
-            href="#skills"
-            className="
-              relative hover:text-white transition duration-300
-              after:absolute after:left-0 after:-bottom-1
-              after:w-0 after:h-[2px]
-              after:bg-blue-400
-              after:transition-all after:duration-300
-              hover:after:w-full
-            "
-          >
+          <a href="#skills" className="hover:text-cyan-300 transition">
             Skills
           </a>
 
-          <a
-            href="#projects"
-            className="
-              relative hover:text-white transition duration-300
-              after:absolute after:left-0 after:-bottom-1
-              after:w-0 after:h-[2px]
-              after:bg-blue-400
-              after:transition-all after:duration-300
-              hover:after:w-full
-            "
-          >
+          <a href="#experience" className="hover:text-cyan-300 transition">
+            Experience
+          </a>
+
+          <a href="#projects" className="hover:text-cyan-300 transition">
             Projects
           </a>
 
-          <a
-            href="#contact"
-            className="
-              relative hover:text-white transition duration-300
-              after:absolute after:left-0 after:-bottom-1
-              after:w-0 after:h-[2px]
-              after:bg-blue-400
-              after:transition-all after:duration-300
-              hover:after:w-full
-            "
-          >
+          <a href="#certifications" className="hover:text-cyan-300 transition">
+            Certifications
+          </a>
+
+          <a href="#contact" className="hover:text-cyan-300 transition">
             Contact
           </a>
 
         </div>
 
       </div>
-
     </nav>
   );
 }

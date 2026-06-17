@@ -1,120 +1,171 @@
 @import "tailwindcss";
 
+/* =========================
+THEMES
+========================= */
+
 :root {
-  --background: #020617;
-  --foreground: #ededed;
+--background: #020617;
+--foreground: #ededed;
+}
+
+/* 🌙 Dark */
+[data-theme="dark"] {
+--background: #020617;
+--foreground: #f8fafc;
+}
+
+/* ☀️ Light */
+[data-theme="light"] {
+--background: #f8fafc;
+--foreground: #111827;
+}
+
+/* 🟣 Cyber */
+[data-theme="cyber"] {
+--background: #12001f;
+--foreground: #f5f3ff;
+}
+
+/* 🌊 Ocean */
+[data-theme="ocean"] {
+--background: #031525;
+--foreground: #ecfeff;
+}
+
+/* 🌅 Sunset */
+[data-theme="sunset"] {
+--background: #2a0f0f;
+--foreground: #fff7ed;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+--color-background: var(--background);
+--color-foreground: var(--foreground);
+--font-sans: var(--font-geist-sans);
+--font-mono: var(--font-geist-mono);
 }
 
+/* =========================
+GLOBAL
+========================= */
+
 html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+scroll-behavior: smooth;
+overflow-x: hidden;
 }
 
 body {
+background: var(--background);
+color: var(--foreground);
 
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(15, 23, 42, 0.9),
-      transparent 30%
-    ),
+font-family: Arial, Helvetica, sans-serif;
 
-    radial-gradient(
-      circle at bottom right,
-      rgba(3, 7, 18, 0.9),
-      transparent 30%
-    ),
+overflow-x: hidden;
+min-height: 100vh;
 
-    linear-gradient(
-      135deg,
-      #000814 0%,
-      #020617 30%,
-      #061120 60%,
-      #020617 100%
-    );
-
-  background-attachment: fixed;
-
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-  min-height: 100vh;
+transition:
+background-color 0.5s ease,
+color 0.5s ease;
 }
 
-/* 🔥 MOVING TECH STACK ANIMATION */
+/* =========================
+MOVING TECH STACK
+========================= */
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
+0% {
+transform: translateX(0%);
+}
 
-  100% {
-    transform: translateX(-50%);
-  }
+100% {
+transform: translateX(-50%);
+}
 }
 
 .animate-marquee {
-  animation: marquee 14s linear infinite;
+animation: marquee 14s linear infinite;
 }
 
-/* 🔥 FLOATING GLOW */
+/* =========================
+FLOATING ANIMATION
+========================= */
 
 @keyframes floatGlow {
-  0% {
-    transform: translateY(0px);
-  }
+0% {
+transform: translateY(0px);
+}
 
-  50% {
-    transform: translateY(-12px);
-  }
+50% {
+transform: translateY(-12px);
+}
 
-  100% {
-    transform: translateY(0px);
-  }
+100% {
+transform: translateY(0px);
+}
 }
 
 .animate-floatGlow {
-  animation: floatGlow 4s ease-in-out infinite;
+animation: floatGlow 4s ease-in-out infinite;
 }
 
-/* 🔥 CUSTOM SCROLLBAR */
+/* =========================
+GLOW EFFECTS
+========================= */
+
+.glow-blue {
+box-shadow:
+0 0 20px rgba(59, 130, 246, 0.4),
+0 0 40px rgba(59, 130, 246, 0.2);
+}
+
+.glow-cyan {
+box-shadow:
+0 0 20px rgba(34, 211, 238, 0.4),
+0 0 40px rgba(34, 211, 238, 0.2);
+}
+
+.glow-purple {
+box-shadow:
+0 0 20px rgba(168, 85, 247, 0.4),
+0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+/* =========================
+SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar {
-  width: 8px;
+width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000814;
+background: #000814;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to bottom,
-    #1d4ed8,
-    #1e40af
-  );
+background: linear-gradient(
+to bottom,
+#2563eb,
+#06b6d4
+);
 
-  border-radius: 10px;
+border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    to bottom,
-    #2563eb,
-    #1d4ed8
-  );
+background: linear-gradient(
+to bottom,
+#3b82f6,
+#22d3ee
+);
 }
 
-/* 🔥 TEXT SELECTION */
+/* =========================
+TEXT SELECTION
+========================= */
 
 ::selection {
-  background: rgba(29, 78, 216, 0.4);
-  color: white;
+background: rgba(59, 130, 246, 0.4);
+color: white;
 }
