@@ -224,7 +224,7 @@ export default function Certifications() {
                 className={`p-5 bg-gradient-to-r ${selectedCert.color} border-b border-white/10 flex items-center justify-between`}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl">{selectedCert.icon}</span>
+<span className="text-3xl">🎓</span>
                   <div>
                     <h3 className="text-white font-bold text-lg leading-snug">{selectedCert.title}</h3>
                     <p className="text-gray-300 text-sm">
