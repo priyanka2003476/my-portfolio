@@ -155,8 +155,7 @@ export default function Certifications() {
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ring-1 ring-white/10" />
 
               {/* Top row */}
-              <div className="flex items-start justify-between mb-4">
-<div className="text-4xl">📜</div>
+              <div className="flex items-center justify-end mb-4">
                 <span className={`text-xs font-semibold px-3 py-1 rounded-full ${cert.badge} whitespace-nowrap`}>
                   {cert.credential}
                 </span>
@@ -223,14 +222,11 @@ export default function Certifications() {
               <div
                 className={`p-5 bg-gradient-to-r ${selectedCert.color} border-b border-white/10 flex items-center justify-between`}
               >
-                <div className="flex items-center gap-3">
-<span className="text-3xl">🎓</span>
-                  <div>
-                    <h3 className="text-white font-bold text-lg leading-snug">{selectedCert.title}</h3>
-                    <p className="text-gray-300 text-sm">
-                      {selectedCert.issuer} · {selectedCert.date}
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg leading-snug">{selectedCert.title}</h3>
+                  <p className="text-gray-300 text-sm">
+                    {selectedCert.issuer} · {selectedCert.date}
+                  </p>
                 </div>
                 <button
                   onClick={() => setSelectedCert(null)}
@@ -255,8 +251,7 @@ export default function Certifications() {
                   }}
                 />
                 {/* Placeholder */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-gray-600">
-                  {/* <div className="text-7xl opacity-30">{selectedCert.icon}</div> */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-gray-600 pointer-events-none">
                   <p className="text-sm text-center px-6">
                     {/* Place your certificate image at:{" "} */}
                     {/* <code className="text-purple-400 text-xs block mt-1">{selectedCert.image}</code> */}
