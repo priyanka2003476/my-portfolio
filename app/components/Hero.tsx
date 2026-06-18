@@ -33,7 +33,7 @@ export default function Hero() {
     "Junior .NET Developer with 1 year of experience  ✦  Passionate about building scalable web applications  ✦  Specialized in ASP.NET Core & Blazor  ✦  Clean Architecture enthusiast  ✦  Always learning, always growing  ✦  Open to exciting opportunities  ✦  ";
 
   return (
-    <section className="min-h-screen flex flex-col lg:grid lg:grid-cols-[60%_40%] items-center gap-10 lg:gap-12 px-5 sm:px-8 md:px-14 lg:px-20 py-16 sm:py-20 lg:py-16 pb-24 sm:pb-28 lg:pb-16 relative overflow-hidden">
+    <section className="lg:min-h-screen flex flex-col lg:grid lg:grid-cols-[60%_40%] items-center gap-10 lg:gap-12 px-5 sm:px-8 md:px-14 lg:px-20 pt-16 sm:pt-20 lg:pt-16 pb-16 sm:pb-20 lg:pb-16 relative overflow-hidden">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#020617] via-[#07152f] to-[#0f3b8f]" />
@@ -283,12 +283,12 @@ export default function Hero() {
 
       </motion.div>
 
-      {/* SCROLLING MARQUEE — hover to pause (hover is a no-op on touch, which is fine) */}
+      {/* SCROLLING MARQUEE — in normal flow on mobile/tablet so it sits right after content; pinned to bottom only on desktop where the section has a fixed viewport height */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-0 right-0 overflow-hidden whitespace-nowrap cursor-pointer"
+        className="static lg:absolute mt-10 sm:mt-12 lg:mt-0 lg:bottom-6 left-0 right-0 overflow-hidden whitespace-nowrap cursor-pointer order-3 lg:order-none w-full"
         onMouseEnter={() => setMarqueePaused(true)}
         onMouseLeave={() => setMarqueePaused(false)}
         title="Hover to pause"
