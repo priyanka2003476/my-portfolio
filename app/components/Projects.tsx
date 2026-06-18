@@ -55,29 +55,29 @@ export default function Projects() {
       id="projects"
       className="
         scroll-mt-28
-        px-6 md:px-10
-        py-24
+        px-5 sm:px-8 md:px-10
+        py-14 sm:py-18 md:py-24
         border-t border-gray-800
         relative overflow-hidden
       "
     >
 
       {/* BACKGROUND GLOW */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full"></div>
+      <div className="absolute top-20 left-10 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-blue-500/10 blur-[70px] sm:blur-[100px] md:blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-10 right-10 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-cyan-500/10 blur-[70px] sm:blur-[100px] md:blur-[120px] rounded-full"></div>
 
-      {/* HEADING */}
+      {/* HEADING - shifted slightly instead of edge-flush, consistent with other sections */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="flex flex-col items-start"
+        className="flex flex-col items-start px-1 sm:px-0 md:ml-2 lg:ml-6 relative z-10"
       >
 
         <h2
           className="
-            text-4xl md:text-5xl
+            text-3xl sm:text-4xl md:text-5xl
             font-extrabold
             bg-gradient-to-r
             from-blue-400
@@ -90,7 +90,7 @@ export default function Projects() {
           Projects
         </h2>
 
-        <p className="text-gray-400 mt-4 max-w-2xl">
+        <p className="text-gray-400 mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base">
           Some of the projects I built using modern technologies,
           secure backend systems, and responsive frontend development.
         </p>
@@ -98,7 +98,7 @@ export default function Projects() {
       </motion.div>
 
       {/* PROJECT GRID */}
-      <div className="mt-16 grid md:grid-cols-2 gap-8">
+      <div className="mt-10 sm:mt-12 md:mt-16 grid md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 px-1 sm:px-2 md:px-0 md:ml-2 lg:ml-6 relative z-10">
 
         {projects.map((project, i) => (
 
@@ -121,7 +121,7 @@ export default function Projects() {
 
             className={`
               relative overflow-hidden
-              rounded-3xl p-7
+              rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7
               backdrop-blur-xl
               border transition-all duration-500
               cursor-pointer
@@ -139,22 +139,22 @@ export default function Projects() {
             {/* PROJECT NUMBER */}
             <div
               className="
-                absolute top-5 right-5
-                text-5xl font-bold
+                absolute top-4 right-4 sm:top-5 sm:right-5
+                text-3xl sm:text-4xl md:text-5xl font-bold
                 text-white/5
               "
             >
               0{i + 1}
             </div>
 
-            {/* TITLE */}
-            <h3 className="text-2xl font-bold text-white relative z-10">
+            {/* TITLE - extra right padding so it never collides with the number on narrow screens */}
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white relative z-10 pr-12 sm:pr-14">
               {project.title}
             </h3>
 
             {/* MINI TEXT */}
-            <p className="text-blue-300 text-sm mt-2 relative z-10">
-              Click to explore project details
+            <p className="text-blue-300 text-xs sm:text-sm mt-2 relative z-10">
+              Tap to {activeIndex === i ? "collapse" : "explore"} project details
             </p>
 
             {/* CONTENT */}
@@ -165,19 +165,19 @@ export default function Projects() {
                 transition-all duration-500
                 ${
                   activeIndex === i
-                    ? "max-h-[500px] opacity-100 mt-6 overflow-y-auto pr-2"
+                    ? "max-h-[420px] sm:max-h-[460px] md:max-h-[500px] opacity-100 mt-5 sm:mt-6 overflow-y-auto pr-2"
                     : "max-h-0 opacity-0 overflow-hidden"
                 }
               `}
             >
 
               {/* DESCRIPTION */}
-              <ul className="text-gray-300 list-disc pl-5 space-y-3">
+              <ul className="text-gray-300 list-disc pl-4 sm:pl-5 space-y-2.5 sm:space-y-3 text-sm sm:text-base">
 
                 {project.desc.map((point, idx) => (
                   <li
                     key={idx}
-                    className="leading-7"
+                    className="leading-6 sm:leading-7"
                   >
                     {point}
                   </li>
@@ -186,7 +186,7 @@ export default function Projects() {
               </ul>
 
               {/* TECH STACK */}
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-5 sm:mt-6 md:mt-7 flex flex-wrap gap-2 sm:gap-2.5 md:gap-3">
 
                 {project.tech.map((t, idx) => (
 
@@ -197,8 +197,9 @@ export default function Projects() {
                       y: -2
                     }}
                     className="
-                      px-4 py-2
-                      text-sm rounded-full
+                      px-3 sm:px-3.5 md:px-4
+                      py-1.5 sm:py-2
+                      text-xs sm:text-sm rounded-full
                       bg-gray-900/80
                       text-gray-300
                       border border-gray-700

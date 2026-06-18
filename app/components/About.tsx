@@ -21,10 +21,11 @@ export default function About() {
     <section
       id="about"
       className="
-        px-6 md:px-20 py-28
+        px-5 sm:px-8 md:px-14 lg:px-20
+        py-16 sm:py-20 lg:py-28
         border-t border-white/10
         grid lg:grid-cols-[60%_40%]
-        gap-16 items-center
+        gap-10 sm:gap-12 lg:gap-16 items-center
       "
     >
 
@@ -39,7 +40,7 @@ export default function About() {
         <motion.h2
           variants={item}
           className="
-            text-5xl md:text-6xl
+            text-3xl sm:text-4xl md:text-5xl lg:text-6xl
             font-black
             bg-gradient-to-r
             from-blue-400
@@ -55,11 +56,11 @@ export default function About() {
         <motion.p
           variants={item}
           className="
-            mt-8
+            mt-6 sm:mt-8
             text-[var(--foreground)]
             opacity-80
-            leading-10
-            text-xl
+            leading-7 sm:leading-8 lg:leading-10
+            text-sm sm:text-base lg:text-xl
             max-w-4xl
           "
         >
@@ -90,23 +91,23 @@ export default function About() {
 
       </motion.div>
 
-      {/* RIGHT SIDE */}
+      {/* RIGHT SIDE - now visible on all screens, just smaller on mobile */}
       <motion.div
-        className="relative hidden md:flex justify-center items-center"
-        initial={{ opacity: 0, x: 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        className="relative flex justify-center items-center mt-6 lg:mt-0 w-full"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
 
-        {/* GLOW */}
+        {/* GLOW - smaller on mobile so it doesn't overflow */}
         <motion.div
           className="
             absolute
-            w-80 h-80
+            w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80
             bg-cyan-500
             opacity-30
-            blur-[120px]
+            blur-[70px] sm:blur-[100px] lg:blur-[120px]
             rounded-full
           "
           animate={{ scale: [1, 1.1, 1] }}
@@ -120,15 +121,16 @@ export default function About() {
         {/* OPEN TO WORK BADGE */}
         <div
           className="
-            absolute -top-10
+            absolute -top-5 sm:-top-7 lg:-top-10
             left-1/2 -translate-x-1/2
-            px-5 py-2
+            px-4 sm:px-5 py-1.5 sm:py-2
             rounded-full
             bg-cyan-500/10
             border border-cyan-400/30
             backdrop-blur-lg
             text-cyan-300
-            text-sm
+            text-xs sm:text-sm
+            whitespace-nowrap
             z-20
           "
         >
@@ -146,8 +148,9 @@ export default function About() {
           }}
           className="
             relative
-            p-10
-            rounded-3xl
+            w-full
+            p-6 sm:p-8 lg:p-10
+            rounded-2xl sm:rounded-3xl
             bg-white/5
             backdrop-blur-xl
             border border-cyan-400/20
@@ -158,10 +161,10 @@ export default function About() {
 
 <h3
   className="
-    text-2xl
+    text-xl sm:text-2xl
     font-bold
     text-[var(--foreground)]
-    mb-6
+    mb-4 sm:mb-6
   "
 >
   Professional Highlights
@@ -175,9 +178,9 @@ export default function About() {
   className="
     text-[var(--foreground)]
     opacity-80
-    space-y-4
-    text-base
-    mb-8
+    space-y-3 sm:space-y-4
+    text-sm sm:text-base
+    mb-6 sm:mb-8
   "
 >
   {[
@@ -198,48 +201,48 @@ export default function About() {
 </motion.ul>
 
 {/* EDUCATION */}
-<div className="mt-8 border-t border-cyan-400/20 pt-6">
+<div className="mt-6 sm:mt-8 border-t border-cyan-400/20 pt-5 sm:pt-6">
 
-  <h3 className="text-xl font-bold text-cyan-400 mb-5">
+  <h3 className="text-lg sm:text-xl font-bold text-cyan-400 mb-4 sm:mb-5">
     🎓 Education
   </h3>
 
-  <div className="space-y-5">
+  <div className="space-y-4 sm:space-y-5">
 
     <div>
-      <h4 className="font-semibold text-[var(--foreground)]">
+      <h4 className="font-semibold text-[var(--foreground)] text-sm sm:text-base">
         Bachelor of Engineering - Information Science
       </h4>
 
-      <p className="text-sm opacity-75">
+      <p className="text-xs sm:text-sm opacity-75">
         Bapuji Institute of Engineering and Technology
       </p>
 
-      <p className="text-sm text-cyan-400">
+      <p className="text-xs sm:text-sm text-cyan-400">
         2021 - 2024 | CGPA: 8.0
       </p>
     </div>
 
     <div>
-      <h4 className="font-semibold text-[var(--foreground)]">
+      <h4 className="font-semibold text-[var(--foreground)] text-sm sm:text-base">
         Diploma - Computer Science & Engineering
       </h4>
 
-      <p className="text-sm opacity-75">
+      <p className="text-xs sm:text-sm opacity-75">
         DRR Government Polytechnic College
       </p>
 
-      <p className="text-sm text-cyan-400">
+      <p className="text-xs sm:text-sm text-cyan-400">
         2018 - 2021 | 77%
       </p>
     </div>
 
     <div>
-      <h4 className="font-semibold text-[var(--foreground)]">
+      <h4 className="font-semibold text-[var(--foreground)] text-sm sm:text-base">
         SSLC
       </h4>
 
-      <p className="text-sm text-cyan-400">
+      <p className="text-xs sm:text-sm text-cyan-400">
         Completed 2018 | 81.12%
       </p>
     </div>
